@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aishwarya Portfolio</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+
+  <style>
+    /* ---------- General Styling ---------- */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      text-align: center;
+    }
+
+    /* ---------- Navbar ---------- */
+    header {
+      background: linear-gradient(90deg, #e16c45, #944328, #af4d2c);
+    }
+
+    .nav-link {
+      font-size: 18px;
+      font-weight: 500;
+      color: white !important;
+      margin: 0 8px;
+    }
+
+    .nav-link:hover {
+      color: #f5b700 !important;
+    }
+
+    .btn {
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 8px 20px;
+    }
+
+    .btn-accent {
+      background-color: #f5b700;
+      color: #222;
+      border: none;
+    }
+
+    .btn-accent:hover {
+      background-color: #ffcc33;
+      color: #111;
+    }
+
+    /* ---------- Home Section ---------- */
+    .home-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+      font-style: italic;
+      background: linear-gradient(135deg, #e4e9f1);
+      color: rgb(17, 15, 15);
+    }
+
+    .home-text {
+      flex: 1;
+      min-width: 300px;
+      font-size: 18px;
+      padding: 20px;
+    }
+
+    .home-text h2 {
+      font-size: 2.5rem;
+    }
+
+    .home-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .home-text h4 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .home-image {
+      width: 320px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0px 8px 18px rgba(16, 16, 16, 0.398);
+      opacity: 0; 
+      transform: translateX(100px); 
+      animation: slideIn 1.2s ease-out forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* ---------- Section Backgrounds ---------- */
+    .about-section {
+      background: #221f1f;
+      color: #0a0a0a;
+    }
+    .about-section {
+  padding: 60px 20px;
+  background: #dcb38c;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-left {
+  flex: 1;
+  text-align: center;
+}
+
+.about-gif {
+  width: 300px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+}
+
+.about-right {
+  flex: 2;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+#typed-text {
+  font-size: 18px;
+  font-style: italic;
+  color: #022156;
+  margin-bottom: 20px;
+  min-height: 100px; /* keeps space while typing */
+}
+
+.interests {
+  margin-top: 20px;
+}
+
+.interests h3 {
+  margin-bottom: 10px;
+  color: #0f0f0f;
+}
+
+.interests ul {
+  list-style: none;
+  padding: 0;
+}
+
+.interests li {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+
+    .education-section {
+      background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+      color: #050505;
+    }
+
+   @keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-100px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(100px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .edu-block {
+      flex-direction: column !important;
+      text-align: center;
+    }
+    .edu-image {
+      text-align: center !important;
+      margin-top: 20px;
+    }
+  }
+  .skills-section {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  padding: 80px 20px 100px 20px; /* inside spacing */
+  margin-bottom: 80px; /* outside spacing before next section */
+  color: white;
+}
+
+    /* Only the skills section gets blue background */
+
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .skill-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 8px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+  /* Keep brand icons in their original colors */
+.skill-item i {
+  font-size: 22px;
+  margin-right: 10px;
+  vertical-align: middle;
+ /* 👈 inherits brand colors */
+}
+/* Skill icons with brand colors */
+.fa-html5 { color: #e34f26; }
+.fa-css3-alt { color: #1572b6; }
+.fa-js { color: #f7df1e; }
+.fa-react { color: #61dafb; }
+.fa-node { color: #68a063; }
+.fa-database { color: #f29111; } /* MySQL (orange-ish) */
+.fa-python { color: #3776ab; }
+.fa-java { color: #007396; }
+.fa-aws { color: #ff9900; }
+.fa-docker { color: #2496ed; }
+.fa-git-alt { color: #f34f29; }
+.fa-github { color: #181717; }
+
+#projects {
+  padding: 60px 20px;
+  background: #f5f7fa;
+  text-align: center;
+}
+
+#projects h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-decoration: none;
+  background: #fff;
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain; /* shows colorful logo properly */
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 12px;
+  text-align: center;
+}
+
+.overlay h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+    .experience-section {
+      background: #0f0404;
+      color: #080707;
+    }
+  
+
+/* Card styling */
+.timeline-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 768px) {
+      .home-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .home-text {
+        width: 100%;
+        padding: 0;
+      }
+
+      .home-image {
+        margin-top: 20px;
+      }
+    }
+
+    /* Contact Section */
+
+  
+    .contact-section {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px 20px;
+  pointer-events: auto;
+}
+
+.contact-container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-card {
+  flex: 1 1 500px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  text-align: left;
+  box-sizing: border-box;
+}
+
+/* Card titles */
+.card-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 25px 0;
+  position: relative;
+}
+
+.card-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 6px;
+  background: #8a2be2;
+  border-radius: 9999px;
+  margin-top: 10px;
+}
+
+/* Contact Info buttons */
+.info-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  background: #6d1bb5;
+  transition: background 0.3s;
+}
+
+.info-buttons a:hover {
+  background: #6d1bb5;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  font-family: inherit;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #8a2be2;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.send-btn {
+  background: #8a2be2;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+}
+
+.send-btn:hover {
+  background: #6d1bb5;
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- ---------- Header / Navbar ---------- -->
+  <header class="d-flex flex-wrap align-items-center justify-content-between py-3 px-4">
+    <!-- Logo -->
+    <a href="#" class="d-inline-flex text-decoration-none">
+      <svg width="50" height="50" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" fill="#f5b700"/>
+        <text x="50%" y="55%" text-anchor="middle" font-size="20" font-family="Arial" fill="black" dy=".3em">A</text>
+      </svg>
+    </a>
+
+    <!-- Navbar Links -->
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#Contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- Contact Button -->
+     <a href="mailto:ainalaaishwarya3@gmail.com">
+    <div class="text-end">
+      <button type="button" class="btn btn-accent">Contact</button>
+    </div>
+    </a>
+  </header>
+
+  <!-- ---------- Home Section ---------- -->
+<section id="home" class="home-container">
+  <div class="home-text">
+    <h2 style="font-weight: bold">Hi🖐, I am Aishwarya</h2>
+  </br>
+    <p style="font-weight: bold">Aspiring Software Engineer</p>
+</br>
+    <p style="font-weight: bold">Code Crafter  | Cloud Enthusiast  | Networking Nerd </p>
+</br>
+    <p>
+      Debugging networks, deploying dreams, and building cool stuff from
+      localhost to the cloud ☁️.
+      <p>I enjoy creating, connecting, and continuously learning.</p>
+    </p>
+  </br>
+ <p style="text-align: center;">
+  <!-- Resume Button -->
+  <a href="./AishwaryaAinalaIE_Resume.pdf" target="_blank">
+    <button type="button" class="btn btn-accent">Resume</button>
+  </a>
+
+  <!-- Contact Button -->
+  <a href="mailto:ainalaaishwarya3@gmail.com">
+    <button type="button" class="btn btn-accent">Contact Me</button>
+  </a>
+</p>
+
+
+
+    <!-- Social Icons -->
+    <div class="social-icons" style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+      <a href="https://www.linkedin.com/in/aishwaryaainala-123abc/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="width: 25px; height: 25px;">
+      </a>
+      <a href="https://github.com/ainalaaishwarya3-blip" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" style="width: 25px; height: 25px;">
+      </a>
+      <a href="https://www.instagram.com/indhu_aishu/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" style="width: 25px; height: 25px;">
+      </a>
+      <a href="https://leetcode.com/u/ainalaaishwarya3/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg" alt="LeetCode" style="width: 25px; height: 25px;">
+      </a>
+      <a href="https://experience.4excelerate.org/dashboard" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Excelerate" style="width: 25px; height: 25px;">
+      </a>
+    </div>
+  </div>
+  <img src="./portfo.jpg" class="home-image" alt="Right Side Image">
+</section>
+
+
+ <section id="about" class="about-section">
+  <div class="about-container">
+    <!-- Left side cartoon GIF -->
+    <div class="about-left">
+      <img src="./laptopimage.jpg" alt="Cartoon of me coding" class="about-gif">
+    </div>
+
+    <!-- Right side content -->
+    <div class="about-right">
+      <h2 style="font-weight: bolder; font-size: 30px;">About Me</h2>
+      <p id="typed-text"></p>
+
+      <!-- Interests Section -->
+      <div class="interests">
+        <h3 style="font-weight: bold; font-size: 23px;">My Interests</h3>
+        <ul>
+          <li>💻 Coding & Problem Solving</li>
+          <li>📚 Reading Tech Blogs</li>
+          <li>🎶 Listening to Music</li>
+          <li>🌍 Exploring New Places</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Typing Animation Script -->
+<script>
+  const text = "I hold a Master’s degree in Computer Science from Illinois Institute of Technology, along with a Bachelor’s in Computer Science and Engineering from Vardhaman College of Engineering in India. I enjoy solving DSA problems, exploring AWS, and building side projects — and occasionally sneaking in a snack hunt or planning my next trip 😅.";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typed-text").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 30); // typing speed
+    }
+  }
+  window.onload = typeEffect;
+</script>
+
+  <!-- ---------- Education Section ---------- -->
+<section id="education" class="education-section" style="padding: 50px 20px;">
+  <div class="container">
+
+    <h2 style="text-align: center; margin-bottom: 50px; font-size: 30px; font-weight: bold">Education</h2>
+
+    <!-- Master's Block (Text Left, Image Right) -->
+    <div class="edu-block slide-in-left"
+         style="display: flex; align-items: center; justify-content: space-between; 
+                gap: 30px; background-color: #f5f5dc; padding: 30px; 
+                border-radius: 20px; margin-bottom: 40px; user-select: text;">
+
+      <!-- Text -->
+      <div class="edu-text" style="flex: 2; text-align: left;">
+        <h3 style="font-weight: bold;">Master of Science, Computer Science</h3>
+        <p style="font-weight: bold;">GPA: 3.33/4.0</p>
+        <p style="font-weight: bold; font-size: 0.95rem; color: #555;">
+          Illinois Institute of Technology | Chicago, IL, United States
+        </p>
+        <p style="font-size: 0.9rem; color: #555;">Aug 2023 - May 2025</p>
+        <p style="font-size: 0.9rem; color: #555;">
+          <strong>Coursework:</strong> Advanced Database, Software Engineering, Science of Programming, Software Project Management, 
+          Data Preparation and Analysis, Intro to Machine Learning, Information Retrieval, Computer Networks, Big Data and Technologies.
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div class="edu-image" style="flex: 0 0 auto; text-align: right;">
+        <img src="./mastersdegreephoto.jpg" alt="Master's Image"
+             style="width: 180px; height: 180px; object-fit: cover; border-radius: 15px;">
+      </div>
+    </div>
+
+    <!-- B.Tech Block (Image Left, Text Right) -->
+    <div class="edu-block slide-in-right"
+         style="display: flex; align-items: center; justify-content: space-between; 
+                gap: 30px; background-color: #e0f7fa; padding: 30px; 
+                border-radius: 20px; margin-bottom: 40px; user-select: text; flex-direction: row-reverse;">
+
+      <!-- Text -->
+      <div class="edu-text" style="flex: 2; text-align: right;">
+        <h3 style="font-weight: bold;">B.Tech in Computer Science & Engineering</h3>
+        <p style="font-weight: bold;">CGPA: 3.67/4.0</p>
+        <p style="font-weight: bold; font-size: 0.95rem; color: #555;">
+          Vardhaman College of Engineering | Hyderabad, India
+        </p>
+        <p style="font-size: 0.9rem; color: #555;">Aug 2019 - May 2023</p>
+        <p style="font-size: 0.9rem; color: #555;">
+          <strong>Coursework:</strong> Data Structures, Algorithms, Object-Oriented Programming, Software Engineering, 
+          Database Management Systems, Python, C/C++, Cloud Computing and Virtualization, Computer Networks, Operating Systems
+        </p>
+      </div>
+
+      <!-- Image -->
+      <div class="edu-image" style="flex: 0 0 auto; text-align: left;">
+        <img src="./btech degree photo.jpg" alt="B.Tech Image"
+             style="width: 180px; height: 180px; object-fit: cover; border-radius: 15px;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ---------- Skills Section ---------- -->
+   <section id="skills">
+  <h1 style="text-align:center; color:rgb(41, 36, 36); margin-bottom:30px; font-size: 30px; font-weight: bold">Skills</h1>
+
+  <div class="skills-container">
+
+    <!-- Programming Languages -->
+    <div class="skill-card">
+      <div class="skill-title">Programming Languages</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fa-brands fa-java"></i> Java</div>
+        <div class="skill-item"><i class="fa-solid fa-code"></i> C/C++</div>
+        <div class="skill-item"><i class="fa-brands fa-python"></i> Python</div>
+        <div class="skill-item"><i class="fa-brands fa-js"></i> JavaScript</div>
+      </div>
+    </div>
+
+    <!-- Web Technologies -->
+    <div class="skill-card">
+      <div class="skill-title">Web Technologies</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fa-brands fa-html5"></i> HTML5</div>
+        <div class="skill-item"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
+        <div class="skill-item"><i class="fa-solid fa-code"></i> TypeScript</div>
+        <div class="skill-item"><i class="fa-brands fa-react"></i> React</div>
+        <div class="skill-item"><i class="fa-brands fa-angular"></i> Angular</div>
+      </div>
+    </div>
+
+    <!-- Frameworks & Tools -->
+    <div class="skill-card">
+      <div class="skill-title">Frameworks & Tools</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fa-brands fa-linux"></i> Linux</div>
+        <div class="skill-item"><i class="fa-solid fa-terminal"></i> Unix</div>
+        <div class="skill-item"><i class="fa-brands fa-docker"></i> Docker</div>
+        <div class="skill-item"><i class="fa-solid fa-network-wired"></i> Kubernetes</div>
+        <div class="skill-item"><i class="fa-solid fa-cubes"></i> Microservices</div>
+        <div class="skill-item"><i class="fa-solid fa-link"></i> REST APIs</div>
+        <div class="skill-item"><i class="fa-brands fa-jira"></i> Jira</div>
+        <div class="skill-item"><i class="fa-solid fa-leaf"></i> Spring Boot</div>
+      </div>
+    </div>
+
+    <!-- Cloud & Networking -->
+    <div class="skill-card">
+      <div class="skill-title">Cloud & Networking</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fa-brands fa-aws"></i> AWS</div>
+        <div class="skill-item"><i class="fa-solid fa-network-wired"></i> TCP/IP</div>
+        <div class="skill-item"><i class="fa-solid fa-route"></i> Routing</div>
+        <div class="skill-item"><i class="fa-solid fa-globe"></i> DNS</div>
+        <div class="skill-item"><i class="fa-solid fa-sitemap"></i> IPv4/IPv6</div>
+      </div>
+    </div>
+
+    <!-- Databases -->
+    <div class="skill-card">
+      <div class="skill-title">Databases</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fa-solid fa-database"></i> MySQL</div>
+        <div class="skill-item"><i class="fa-solid fa-leaf"></i> MongoDB</div>
+        <div class="skill-item"><i class="fa-solid fa-database"></i> PostgreSQL</div>
+        <div class="skill-item"><i class="fa-solid fa-server"></i> NoSQL</div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="skill-card">
+      <div class="skill-title">Certifications</div>
+      <div class="skill-list">
+        <div class="skill-item"><i class="fa-solid fa-cloud"></i> AWS Cloud Fundamentals</div>
+        <div class="skill-item"><i class="fa-solid fa-code"></i> DSA in Java</div>
+        <div class="skill-item"><i class="fa-solid fa-database"></i> SQL Intermediate</div>
+        <div class="skill-item"><i class="fa-solid fa-globe"></i> Web Development</div>
+      </div>
+    </div>
+
+  </div>
+   </section>
+
+
+
+
+  <!-- ---------- Projects Section ---------- -->
+<section id="projects">
+  <h2 style= "font-weight: bold">My Projects</h2>
+  <div class="projects-grid">
+
+    <!-- Crypto Website -->
+    <a href="https://ainalaaishwarya3-blip.github.io/Crypto-Website/" target="_blank" class="project-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1490/1490875.png" alt="Crypto Website Logo">
+      <div class="overlay">
+        <h3>Crypto Website</h3>
+      </div>
+    </a>
+
+    <!-- Dice Game -->
+    <a href="" target="_blank" class="project-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/889/889711.png" alt="Dice Game Logo">
+      <div class="overlay">
+        <h3>Dice Game</h3>
+      </div>
+    </a>
+
+    <!-- Hand Gesture Research -->
+    <a href="https://www.ijraset.com/research-paper/interactive-computer-system-using-hand-gestures?utm_source=chatgpt.com" target="_blank" class="project-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1042/1042339.png" alt="Gesture Research Logo">
+      <div class="overlay">
+        <h3>Hand Gesture Research</h3>
+      </div>
+    </a>
+
+    <!-- Neighborhood App -->
+    <a href="https://neighborhood-resource-sharing-app.netlify.app/" target="_blank" class="project-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1041/1041885.png" alt="Neighborhood App Logo">
+      <div class="overlay">
+        <h3>Neighborhood Sharing App</h3>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ---------- Experience Section ---------- -->
+
+<section id="experience" class="bg-gray-100 py-32 relative">
+  <div class="max-w-5xl mx-auto px-4 relative">
+    <!-- Heading -->
+    <h2 class="text-3xl font-bold mb-24 text-center relative z-10 bg-gray-100 inline-block px-4">Experience</h2>
+
+    <!-- Vertical line in the center -->
+    <div class="absolute left-1/2 top-0 -translate-x-1/2 h-full w-1 bg-blue-600"></div>
+
+    <!-- Timeline items -->
+    <div class="space-y-16 relative z-10">
+      <!-- 2021 Left -->
+      <div class="relative flex justify-start w-full" data-aos="fade-right">
+        <!-- Dot + Year -->
+        <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+          <span class="mt-1 text-xs font-semibold bg-blue-600 text-white px-2 py-1 rounded">2021</span>
+        </div>
+        <!-- Card -->
+        <div class="bg-white shadow-md rounded-xl w-full md:w-5/12 ml-auto overflow-hidden">
+          <!-- Header block -->
+          <div class="bg-blue-50 p-3">
+            <h3 class="text-lg font-semibold">Web Developer Intern</h3>
+            <p class="text-sm text-gray-600">Vardhman College of Engineering</p>
+              <p class="text-sm text-gray-600"> Feb 2021 – Dec 2021</p>
+          </div>
+          <!-- Content block -->
+          <div class="p-4">
+            <p class="text-gray-700 text-sm">Developed responsive websites and interactive dashboards to improve usability.</p>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded-full">Web Dev</span>
+              <span class="bg-blue-100 text-blue-700 text-xs font-medium px-2 py-1 rounded-full">JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2022 Right -->
+      <div class="relative flex justify-end w-full" data-aos="fade-left">
+        <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+          <span class="mt-1 text-xs font-semibold bg-blue-600 text-white px-2 py-1 rounded">2022</span>
+        </div>
+        <div class="bg-white shadow-md rounded-xl w-full md:w-5/12 mr-auto overflow-hidden">
+          <div class="bg-green-50 p-3">
+            <h3 class="text-lg font-semibold">IT Analyst</h3>
+            <p class="text-sm text-gray-600">SmartIMS</p>
+            <p class="text-sm text-gray-600">Jan 2022 – Dec 2022</p>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-700 text-sm">Designed scalable backend services and optimized database queries.</p>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded-full">Java</span>
+              <span class="bg-green-100 text-green-700 text-xs font-medium px-2 py-1 rounded-full">Spring Boot</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2023 Left -->
+      <div class="relative flex justify-start w-full" data-aos="fade-right">
+        <div class="absolute left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div class="w-3 h-3 bg-blue-600 rounded-full"></div>
+          <span class="mt-1 text-xs font-semibold bg-blue-600 text-white px-2 py-1 rounded">2025</span>
+        </div>
+        <div class="bg-white shadow-md rounded-xl w-full md:w-5/12 ml-auto overflow-hidden">
+          <div class="bg-purple-50 p-3">
+            <h3 class="text-lg font-semibold">Software Developer I</h3>
+            <p class="text-sm text-gray-600">TechCorp USA</p>
+            <p class="text-sm text-gray-600">Jan 2025 – Aug 2025</p>
+          </div>
+          <div class="p-4">
+            <p class="text-gray-700 text-sm">Implemented CI/CD pipelines and integrated APIs for better performance.</p>
+            <div class="flex gap-2 flex-wrap mt-2">
+              <span class="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">Node.js</span>
+              <span class="bg-purple-100 text-purple-700 text-xs font-medium px-2 py-1 rounded-full">React</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AOS Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+</script>
+
+
+
+  <!-- ---------- Contact Section ---------- -->
+ <section id="Contact" class="contact-section">
+  <div class="contact-container">
+
+    <!-- Contact Info -->
+    <div class="contact-card">
+      <h3 class="card-title">Contact Info</h3>
+      <div class="info-buttons">
+        <a href="mailto:ainalaaishwarya3@gmail.com">📧 Email Me</a>
+        <a href="#">📍 Chicago, IL, USA</a>
+        <a href="https://www.linkedin.com/in/aishwaryaainala-123abc/" target="_blank">💼 LinkedIn</a>
+        <a href="https://www.instagram.com/indhu_aishu/" target="_blank">📸 Instagram</a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-card">
+      <h3 class="card-title">Send Me a Message</h3>
+      <form class="contact-form" action="https://formspree.io/f/mldwodjd" method="POST">
+  <input type="text" name="name" placeholder="Your name" required>
+  <input type="email" name="email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit" class="send-btn">Send Message</button>
+</form>
+
+<!-- Success / error messages -->
+<p id="formStatus" style="text-align:center; margin-top:10px; color:green; display:none;">
+  ✅ Your message has been sent!
+</p>
+<p id="formError" style="text-align:center; margin-top:10px; color:red; display:none;">
+  ❌ Oops! Something went wrong. Please try again.
+</p>
+
+<script>
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+  const error = document.getElementById("formError");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value
+    };
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        status.style.display = "block";
+        error.style.display = "none";
+        form.reset();
+        setTimeout(() => { status.style.display = "none"; }, 5000); // hide success after 5s
+      } else {
+        throw new Error("Network response was not ok");
+      }
+    } catch (err) {
+      status.style.display = "none";
+      error.style.display = "block";
+      setTimeout(() => { error.style.display = "none"; }, 5000); // hide error after 5s
+    }
+  });
+</script>
+
+</section>
+
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+   <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  
+ 
+  </script>
+</body>
+</html>
+
+

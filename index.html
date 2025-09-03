@@ -378,10 +378,10 @@
     /* Contact Section */
 
   
-    .contact-section {
+     .contact-section {
   max-width: 1200px;
   margin: 60px auto;
-  padding: 40px 20px;
+  padding: 60px 20px;
   pointer-events: auto;
 }
 
@@ -396,9 +396,9 @@
 .contact-card {
   flex: 1 1 500px;
   background: #fff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: left;
   box-sizing: border-box;
 }
@@ -424,6 +424,7 @@
 
 /* Contact Info buttons */
 .info-buttons {
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -434,10 +435,10 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px;
-  border-radius: 8px;
+  padding: 12px;
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   background: #6d1bb5;
   transition: background 0.3s;
@@ -454,6 +455,7 @@
   gap: 18px;
   position: relative;;
 }
+
 
 .contact-form input,
 .contact-form textarea {
@@ -493,10 +495,11 @@
 .send-btn:hover {
   background: #6d1bb5;
 }
+
  .link {
     color: blue;
     text-decoration: underline;
- }
+  }
 
   </style>
 </head>
@@ -903,34 +906,40 @@
 </script>
 
   <!-- ---------- Contact Section ---------- -->
- <section id="Contact" class="contact-section">
+<section id="Contact" class="contact-section">
 
-  <!-- Add Name and Email Display -->
- <div class="contact-card">
-  <h3 class="card-title">Contact Info</h3>
+  <div class="contact-container">
+    <!-- Contact Info Card -->
+    <div class="contact-card">
+      <h3 class="card-title">Contact Info</h3>
+      <p><strong>Name:</strong> 
+        <a href="https://www.linkedin.com/in/aishwaryaainala-123abc/" target="_blank" class="link">Aishwarya Ainala</a>
+      </p>
+      <p><strong>Email:</strong> 
+        <a href="mailto:ainalaaishwarya3@gmail.com" class="link">ainalaaishwarya3@gmail.com</a>
+      </p>
 
-  <!-- Name and Email Display with Links -->
-  <p><strong>Name:</strong> <a href="https://www.linkedin.com/in/aishwaryaainala-123abc/" target="_blank" class="link">Aishwarya Ainala</a></p>
-  <p><strong>Email:</strong> <a href="mailto:ainalaaishwarya3@gmail.com" class="link">ainalaaishwarya3@gmail.com</a></p>
+      <div class="info-buttons">  
+        <a href="mailto:ainalaaishwarya3@gmail.com">📧 Email Me</a>
+        <a href="#">📍 Chicago, IL, USA</a>
+        <a href="https://www.linkedin.com/in/aishwaryaainala-123abc/" target="_blank">💼 LinkedIn</a>
+        <a href="https://www.instagram.com/indhu_aishu/" target="_blank">📸 Instagram</a>
+      </div>
+    </div>
 
-  <!-- Add some spacing -->
-  <div style="margin-top: 15px;" class="info-buttons">
-    <a href="mailto:ainalaaishwarya3@gmail.com">📧 Email Me</a>
-    <a href="#">📍 Chicago, IL, USA</a>
-    <a href="https://www.linkedin.com/in/aishwaryaainala-123abc/" target="_blank">💼 LinkedIn</a>
-    <a href="https://www.instagram.com/indhu_aishu/" target="_blank">📸 Instagram</a>
-  </div>
-</div>
-
-    <!-- Contact Form -->
+    <!-- Contact Form Card -->
     <div class="contact-card">
       <h3 class="card-title">Send Me a Message</h3>
       <form class="contact-form" action="https://formspree.io/f/mldwodjd" method="POST">
-  <input type="text" name="name" placeholder="Your name" required>
-  <input type="email" name="email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit" class="send-btn">Send Message</button>
-</form>
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+</section>
 
 <!-- Success / error messages -->
 <p id="formStatus" style="text-align:center; margin-top:10px; color:green; display:none;">
@@ -997,6 +1006,7 @@
   </script>
 </body>
 </html>
+
 
 
 

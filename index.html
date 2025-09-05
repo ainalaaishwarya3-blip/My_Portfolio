@@ -189,40 +189,48 @@
 }
 
 
-    .education-section {
-      background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
-      color: #050505;
-    }
+   education-section {
+  background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+  color: #050505;
+}
 
-   @keyframes slideInLeft {
-    0% { opacity: 0; transform: translateX(-100px); }
-    100% { opacity: 1; transform: translateX(0); }
-  }
+/* Keyframes */
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(-100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
 
-  @keyframes slideInRight {
-    0% { opacity: 0; transform: translateX(100px); }
-    100% { opacity: 1; transform: translateX(0); }
-  }
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(100px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
 
-  .slide-in-left {
-    animation: slideInLeft 1s ease-out forwards;
-  }
+/* Initial hidden state */
+.edu-block {
+  opacity: 0;
+}
 
-  .slide-in-right {
-    animation: slideInRight 1s ease-out forwards;
-  }
+/* Animate when class is added */
+.slide-in-left.show {
+  animation: slideInLeft 1s ease-out forwards;
+}
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .edu-block {
-      flex-direction: column !important;
-      text-align: center;
-    }
-    .edu-image {
-      text-align: center !important;
-      margin-top: 20px;
-    }
+.slide-in-right.show {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .edu-block {
+    flex-direction: column !important;
+    text-align: center;
   }
+  .edu-image {
+    text-align: center !important;
+    margin-top: 20px;
+  }
+}
+
   .skills-section {
   background: linear-gradient(to right, #1e3c72, #2a5298);
   padding: 80px 20px 100px 20px; /* inside spacing */
@@ -234,60 +242,76 @@
 
 
     .skills-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    .skill-card {
-      background: #fff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
+.skill-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  
+  /* 👇 scroll effect initial state */
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
-    .skill-card:hover {
-      transform: translateY(-5px);
-    }
+.skill-card:hover {
+  transform: translateY(-5px);
+}
 
-    .skill-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
-    }
+.skill-card.show {
+  opacity: 1;
+  transform: scale(1);
+}
 
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
+/* staggered animation */
+.skill-card:nth-child(1) { transition-delay: 0.1s; }
+.skill-card:nth-child(2) { transition-delay: 0.2s; }
+.skill-card:nth-child(3) { transition-delay: 0.3s; }
+.skill-card:nth-child(4) { transition-delay: 0.4s; }
+.skill-card:nth-child(5) { transition-delay: 0.5s; }
+.skill-card:nth-child(6) { transition-delay: 0.6s; }
 
-  /* Keep brand icons in their original colors */
+.skill-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* Keep brand icons in their original colors */
 .skill-item i {
   font-size: 22px;
   margin-right: 10px;
   vertical-align: middle;
- /* 👈 inherits brand colors */
 }
-/* Skill icons with brand colors */
+
 .fa-html5 { color: #e34f26; }
 .fa-css3-alt { color: #1572b6; }
 .fa-js { color: #f7df1e; }
 .fa-react { color: #61dafb; }
 .fa-node { color: #68a063; }
-.fa-database { color: #f29111; } /* MySQL (orange-ish) */
+.fa-database { color: #f29111; } /* MySQL */
 .fa-python { color: #3776ab; }
 .fa-java { color: #007396; }
 .fa-aws { color: #ff9900; }
 .fa-docker { color: #2496ed; }
 .fa-git-alt { color: #f34f29; }
 .fa-github { color: #181717; }
-
 #projects {
   padding: 60px 20px;
   background: #dce3ee;
@@ -1004,8 +1028,42 @@
   
  
   </script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // run once
+        }
+      });
+    }, { threshold: 0.2 }); // 20% visible triggers it
+
+    document.querySelectorAll(".slide-in-left, .slide-in-right").forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target); // run once
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".skill-card").forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>
 </body>
 </html>
+
 
 
 

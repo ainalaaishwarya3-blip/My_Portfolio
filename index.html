@@ -627,32 +627,37 @@
       <h2 style="font-weight: bolder; font-size: 30px;">About Me</h2>
       <p id="typed-text"></p>
 
-      <!-- Interests Section -->
-      <div class="interests">
-        <h3 style="font-weight: bold; font-size: 23px;">My Interests</h3>
-        <ul>
-          <li>💻 Coding & Problem Solving</li>
-          <li>📚 Reading Tech Blogs</li>
-          <li>🎶 Listening to Music</li>
-          <li>🌍 Exploring New Places</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+     <!-- Core Focus Section -->
+<div class="interests">
+  <h3 style="font-weight: bold; font-size: 23px;">Core Focus</h3>
+  <ul>
+    <li>⚙️ Backend Development & Microservices</li>
+    <li>🚀 Performance Optimization & Scalability</li>
+    <li>☁️ AWS Cloud & Distributed Systems</li>
+    <li>🔐 Secure REST API Design</li>
+  </ul>
+</div>
+</div>
+</div>
 </section>
 
 <!-- Typing Animation Script -->
 <script>
-  const text = "I hold a Master’s degree in Computer Science from Illinois Institute of Technology, along with a Bachelor’s in Computer Science and Engineering from Vardhaman College of Engineering in India. I enjoy solving DSA problems, exploring AWS, and building side projects — and occasionally sneaking in a snack hunt or planning my next trip 😅.";
+  const text = `Backend Engineer with 4+ years of experience building scalable, high-performance systems using Java, Spring Boot, and microservices architecture. I specialize in designing secure REST APIs, optimizing backend performance, and developing fault-tolerant distributed systems.`;
+
   let i = 0;
+
   function typeEffect() {
-    if (i < text.length) {
-      document.getElementById("typed-text").innerHTML += text.charAt(i);
+    const typedText = document.getElementById("typed-text");
+
+    if (typedText && i < text.length) {
+      typedText.innerHTML += text.charAt(i);
       i++;
-      setTimeout(typeEffect, 30); // typing speed
+      setTimeout(typeEffect, 25);
     }
   }
-  window.onload = typeEffect;
+
+  window.addEventListener("DOMContentLoaded", typeEffect);
 </script>
 
   <!-- ---------- Education Section ---------- -->

@@ -109,13 +109,16 @@
     }
 
     .home-image {
-      width: 320px;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0px 8px 18px rgba(16, 16, 16, 0.398);
-      opacity: 0; 
-      transform: translateX(100px); 
-      animation: slideIn 1.2s ease-out forwards;
+  width: 240px;          /* ↓ reduce size */
+  max-width: 100%;       /* responsive */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0px 8px 18px rgba(16, 16, 16, 0.25);
+
+  opacity: 0;
+  transform: translateX(80px);  /* slightly less movement */
+  animation: slideIn 1s ease-out forwards;
+  }
     }
 
     @keyframes slideIn {
